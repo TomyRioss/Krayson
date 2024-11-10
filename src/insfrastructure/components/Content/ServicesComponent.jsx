@@ -4,16 +4,14 @@ import { Service_service } from "../../../domain/services/Service.service";
 export function ServicesComponent() {
     
     const [services, setServices] = useState([]);
-
+    
     useEffect(() => {
         const data = new Service_service();
         
-        // Aquí simulamos la obtención de datos de tu servicio
         const fetchedServices = data.services.list;
         
         setServices(fetchedServices);
         
-        // Se muestra `fetchedServices` en lugar de `services` aquí
         console.log(data.services.list);
         console.log(fetchedServices);
     }, []);
