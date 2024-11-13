@@ -4,10 +4,12 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
-        oswald: ["oswald","Oswald"]
+        oswald: ["oswald","sans-serif"],
+        poppins: ["Poppins","sans-serif"]
       }
     },
   },

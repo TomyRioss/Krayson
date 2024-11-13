@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-    <div className='flex-col'>
+    <div className='flex-col pr-12 pl-12'>
       <HeaderComponent/>
       <ServicesComponent/>
     </div>
