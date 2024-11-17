@@ -1,9 +1,10 @@
 export class Service {
 
-    constructor(price,description,image){
-        this.price = price
-        this.description = description
-        this.image = image
+    constructor(id,price,description,image){
+        this.id = id;
+        this.price = price;
+        this.description = description;
+        this.image = image;
     }
     
 

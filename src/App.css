@@ -1,9 +1,22 @@
 #root {
   margin: 0 auto;
-  margin-top: 4rem;
   text-align: center;
 }
 
 .dark{
   background: #000;
+}
+
+.bg-image{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./assets/Hero.jpg");
+  display: flex;
+  flex-direction: column;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+
+.bg-image img{
+  
 }

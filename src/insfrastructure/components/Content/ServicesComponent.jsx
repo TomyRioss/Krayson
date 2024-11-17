@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Service_service } from "../../../domain/services/Service.service";
+import PayPalBtn from "../utils/PayPalBtn";
 
 export function ServicesComponent() {
     
@@ -11,13 +12,11 @@ export function ServicesComponent() {
         const fetchedServices = data.services.list;
         
         setServices(fetchedServices);
-        
-        console.log(data.services.list);
-        console.log(fetchedServices);
+
     }, []);
     
     return (
-        <section>
+        <section className="">
             <ul className="grid mt-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {services.map((item, index) => (
                     <li className="items-center flex justify-center flex-col gap-2" key={index}>
@@ -27,8 +26,7 @@ export function ServicesComponent() {
                         </div>
                         <p>{item.description}</p>
                         <div className="flex gap-4">
-                            <button className="bg-blue-400 text-white p-2 rounded-sm">Añadir al carrito</button>
-                            <button className="bg-green-500 text-white p-2 rounded-sm">Comprar</button>
+                            <PayPalBtn productId={item.id}/>
                         </div>
                     </li>
                 ))}
