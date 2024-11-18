@@ -11,7 +11,7 @@ export function Cbx({options,label}) {
         id="cbx"
         className="font-poppins text-xl border-b-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-transparent focus:bg-transparent"
       >
-        <option value="Default" selected>Ver Servicios</option>
+        <option value="Default" className="focus:bg-transparent bg-black" selected>Ver Servicios</option>
         { options.map((item,index) => 
             <option className="focus:bg-transparent bg-black" key={index} value={item.val}>{item.text}</option>
         ) }

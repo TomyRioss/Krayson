@@ -13,7 +13,6 @@ function App() {
         <HeaderComponent/>
         <HeroBanner/>
       </div>
-      <ServicesComponent/>
     </div>
     </>
   )
