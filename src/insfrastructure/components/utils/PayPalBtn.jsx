@@ -12,11 +12,12 @@ function PayPalBtn({productId}) {
         alignContent: "start",
         gap: "0.5rem",
       }}
+
     >
       <input
         className="pp-YTS5Q3KPK5YK4"
         type="submit"
-        value="Comprar ahora"
+        value="Buy Now!"
         style={{ cursor: "pointer" }}
       />
     </form>
