@@ -1,21 +1,32 @@
-export function Cbx({options,label}) {
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+
+export function Cbx({ options, label }) {
   return (
-    <form className="max-w-sm mx-auto">
-      <label
-        htmlFor="cbx"
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >
-        {label}
-      </label>
-      <select
-        id="cbx"
-        className="font-poppins text-xl border-b-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-transparent focus:bg-transparent"
-      >
-        <option value="Default" className="focus:bg-transparent bg-black" selected>Ver Servicios</option>
-        { options.map((item,index) => 
-            <option className="focus:bg-transparent bg-black" key={index} value={item.val}>{item.text}</option>
-        ) }
-      </select>
-    </form>
+    <div class="flex w-full justify-center items-center ">
+      <div class="dropdown inline-block relative">
+        <button class=" dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-semibold py-2 px-4 rounded inline-flex items-center">
+          <span class="mr-1">Ver Servicios</span>
+          <svg
+            class="fill-current h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{" "}
+          </svg>
+        </button>
+        <ul class="dropdown-menu absolute hidden text-gray-700 dark:text-gray-300 pt-1">
+          {options.map((item, index) => (
+            <li>
+              <Link
+                to={"/category/" + item.id}
+                class="rounded-t  dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-700 py-2 px-4 block whitespace-no-wrap"
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }

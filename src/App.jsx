@@ -1,21 +1,21 @@
-import './App.css'
-import { ServicesComponent } from './insfrastructure/components/Content/ServicesComponent.jsx'
-import { HeaderComponent } from './insfrastructure/components/Header/HeaderComponent.jsx'
-import { HeroBanner } from './insfrastructure/components/Hero/HeroBanner.jsx'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HeroBanner } from './insfrastructure/components/Hero/HeroBanner';
+import { Home } from './insfrastructure/components/Pages/Home';
+import { Services } from './insfrastructure/components/Pages/Services';
+import "./App.css"
 
-
-function App() {
-
+const App = () => {
   return (
-    <>
-    <div className='flex-col'>
-      <div className='bg-image'>
-        <HeaderComponent/>
-        <HeroBanner/>
-      </div>
-    </div>
-    </>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/category/:categoryId" element={<Services />} />
+        <Route path="/services/" element={<Services />} />
+        <Route path="*" element={<div>Ruta no encontrada</div>} /> 
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;

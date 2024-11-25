@@ -3,8 +3,11 @@
   text-align: center;
 }
 
-.dark{
-  background: #000;
+html, body {
+  height: 100%;
+  margin: 0; 
+  background-color: black; 
+  color: white; 
 }
 
 .bg-image{
@@ -16,4 +19,12 @@
   background-size: cover;
   height: 100vh;
   position: relative;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.mt-82{
+  margin-top: 332px;
 }

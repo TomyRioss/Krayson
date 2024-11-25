@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function HeroBanner() {
   return (
     <section className="w-full font-semibold  flex flex-col gap-8 font-montserrat items-start h-2/5 text-white mt-28">
@@ -15,7 +17,7 @@ export function HeroBanner() {
           veniam consectetur accusantium inventore.
         </p>
         <button className="bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-lg mt-4 shadow-lg transition-all ml-2">
-          Explorar Servicios
+          <Link to="/services">Explorar Servicios</Link>
         </button>
       </div>
       {/* <div className="absolute right-8 top-1/3 text-white">
