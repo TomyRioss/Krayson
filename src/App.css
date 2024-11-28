@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-html, body {
+html, body,main {
   height: 100%;
   margin: 0; 
   background-color: black; 

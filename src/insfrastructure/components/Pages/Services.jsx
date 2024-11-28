@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { Service_service } from "../../../domain/services/Service.service";
-import PayPalBtn from "../utils/PayPalBtn";
 import { useParams } from "react-router-dom";
 import { Categories_services } from "../../../domain/services/Categories.service";
 import { HeaderComponent } from "../Header/HeaderComponent";
@@ -8,6 +6,7 @@ import { ServiceCard } from "../utils/ServiceCard";
 import { ContactUs } from "../ContactUs/ContactUs";
 
 export function Services() {
+
   const [services, setServices] = useState([]);
   const { categoryId } = useParams();
 
@@ -16,7 +15,7 @@ export function Services() {
 
     let fetchedServices = data.loadList;
 
-    console.log(data);
+    console.log(fetchedServices);
 
     setServices(fetchedServices);
   }, [categoryId]);
@@ -24,7 +23,7 @@ export function Services() {
   return (
     <main className="dark">
       <HeaderComponent />
-      <section className="">
+      <section>
         {services.length > 0 ? (
           <ul className="grid mt-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {services.map((item, index) => (
@@ -32,7 +31,7 @@ export function Services() {
                 className="items-center flex justify-center flex-col gap-2"
                 key={index}
               >
-                <ServiceCard image={item.image} price={item.price} description={item.description}/>
+                <ServiceCard id={item.id} image={item.image} price={item.price} description={item.description}/>
                 
               </li>
             ))}
