@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { destroyDetail, storeDetail } from "../../State/slices/BuyCarSlice";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -8,8 +9,18 @@ export function ServiceCard({id,image,price,description}) {
 
   const dispatch = useDispatch();
 
+  const sendToGmail = (service) => {
+    const email = "";
+    const subject = "Compra Servicio personalizado";
+    const body = "Buenas equipo de Krayson necesito el siguiente servicio: " + service;
+
+    const mailtoURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoURL;
+  }
+
   return (
-    <div className="w-[240px] h-auto p-4 pb-2 bg-gray-100 text-black relative overflow-visible shadow-md">
+    <div className={`w-[280px] h-auto p-4 pb-2 bg-gray-100 text-black relative overflow-visible shadow-md`}>
       <div className="bg-orange-200 h-2/5 w-full rounded-lg transition-transform duration-300 ease-in-out hover:-translate-y-6 hover:shadow-xl">
         <img className="w-full" src={image} alt="" />
       </div>
@@ -19,9 +30,9 @@ export function ServiceCard({id,image,price,description}) {
         <p className="text-sm pb-2">Product description and details</p>
       </div>
 
-      <div className="w-full flex justify-between items-center pt-2 border-t border-gray-300">
-        <span className="font-bold text-xl">{price != "" ? "$"+price : "Personalizado"}</span>
-        <button onClick={() => dispatch(storeDetail({id,image,price,description}))} className="flex items-center border border-black p-2 rounded-full cursor-pointer transition duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-200">
+      <div className={`w-full flex justify-between items-center pt-2 gap-6 border-t  border-gray-300 ${price == "" && "flex-col"}`}>
+        <span className="font-bold text-2xl">{price != "" ? "$"+price : "Personalizado"}</span>
+        { price != "" ? <button onClick={() => dispatch(storeDetail({id,image,price,description}))} className="flex items-center border border-black p-2 rounded-full cursor-pointer transition duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-200">
           <svg
             className="w-5 h-5"
             viewBox="0 0 20 20"
@@ -32,7 +43,8 @@ export function ServiceCard({id,image,price,description}) {
             <path d="M8.251,12.386c-1.023,0-1.856,0.834-1.856,1.856s0.833,1.853,1.856,1.853c1.021,0,1.853-0.83,1.853-1.853S9.273,12.386,8.251,12.386z M8.251,15.116c-0.484,0-0.877-0.393-0.877-0.874c0-0.484,0.394-0.878,0.877-0.878c0.482,0,0.875,0.394,0.875,0.878C9.126,14.724,8.733,15.116,8.251,15.116z"></path>
             <path d="M13.972,12.386c-1.022,0-1.855,0.834-1.855,1.856s0.833,1.853,1.855,1.853s1.854-0.83,1.854-1.853S14.994,12.386,13.972,12.386z M13.972,15.116c-0.484,0-0.878-0.393-0.878-0.874c0-0.484,0.394-0.878,0.878-0.878c0.482,0,0.875,0.394,0.875,0.878C14.847,14.724,14.454,15.116,13.972,15.116z"></path>
           </svg>
-        </button>
+        </button> : <button type="button" onClick={() => sendToGmail(description)} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Contactar</button>}
+        
       </div>
     </div>
   );

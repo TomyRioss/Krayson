@@ -4,6 +4,7 @@ import { Detail } from '../../../domain/models/Detail';
 import Service from '../../../domain/models/Service';
 
 const initialState = {
+  total: 0,
   details: []
 }
 
@@ -22,7 +23,6 @@ export const buyCarSlice = createSlice({
       };
 
       const detail = state.details.find(detail => detail.service.id === newDetail.service.id);
-      console.log(detail);
       if(!detail){
         state.details.push(newDetail);
         return;
@@ -47,11 +47,19 @@ export const buyCarSlice = createSlice({
         detail.quantity -= 1;
       }
       detail.subtotal = (detail.quantity * detail.service.price).toFixed(2);
+    },
+    getTotal: (state,action) => {
+      state.total = 0;
+      if (state.details.length > 0) {
+        state.details.map((item) => {
+          state.total += item.quantity * item.service.price;
+        })
+      }
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { storeDetail,destroyDetail,incrementStock,decrementStock } = buyCarSlice.actions
+export const { storeDetail,destroyDetail,incrementStock,decrementStock,getTotal } = buyCarSlice.actions
 
 export default buyCarSlice.reducer

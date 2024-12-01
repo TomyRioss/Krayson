@@ -12,14 +12,13 @@ export class Service_service{
         this.storeProgrammingServices();
         this.storeDiscordServices();
         this.storeMinecraftServices();
-        console.log(this.programmingServices);
     }
 
     storeProgrammingServices(){
-        this.programmingServices.list.push(new Service("YTS5Q3KPK5YK4",10.99,"Aplicación Sencilla","https://www.juancmejia.com/wp-content/uploads/2018/03/Mejores-productos-para-vender-online.jpg",1))
-        this.programmingServices.list.push(new Service("C4G47ARVAMT2W",5.99,"Aplicación Avanzada","https://www.juancmejia.com/wp-content/uploads/2018/03/Mejores-productos-para-vender-online.jpg",2))
-        this.programmingServices.list.push(new Service("C4G47ARVAMT2W",5.99,"Bot Sencillo","https://www.juancmejia.com/wp-content/uploads/2018/03/Mejores-productos-para-vender-online.jpg",3))
-        this.programmingServices.list.push(new Service("C4G47ARVAMT2W",5.99,"Bot Avanzado","https://www.juancmejia.com/wp-content/uploads/2018/03/Mejores-productos-para-vender-online.jpg",4))
+        this.programmingServices.list.push(new Service("YTS5Q3KPK5YK4",5,"Aplicación Sencilla","https://www.juancmejia.com/wp-content/uploads/2018/03/Mejores-productos-para-vender-online.jpg",1))
+        this.programmingServices.list.push(new Service("C4G47ARVAMT2W","","Aplicación Avanzada","https://www.juancmejia.com/wp-content/uploads/2018/03/Mejores-productos-para-vender-online.jpg",2))
+        this.programmingServices.list.push(new Service("C4G47ARVAMT2W",6,"Bot Sencillo","https://www.juancmejia.com/wp-content/uploads/2018/03/Mejores-productos-para-vender-online.jpg",3))
+        this.programmingServices.list.push(new Service("C4G47ARVAMT2W","","Bot Avanzado","https://www.juancmejia.com/wp-content/uploads/2018/03/Mejores-productos-para-vender-online.jpg",4))
     }
 
     storeMinecraftServices(){
@@ -34,7 +33,7 @@ export class Service_service{
 
     storeDiscordServices(){
         this.discordServices.list.push(new Service("UDQIE",2,"Servidor Sencillo","https://www.juancmejia.com/wp-content/uploads/2018/03/Mejores-productos-para-vender-online.jpg",12))
-        this.discordServices.list.push(new Service("UDQIE","8 - 10$","Servidor Avanzado","https://www.juancmejia.com/wp-content/uploads/2018/03/Mejores-productos-para-vender-online.jpg",13))
+        this.discordServices.list.push(new Service("UDQIE","","Servidor Avanzado","https://www.juancmejia.com/wp-content/uploads/2018/03/Mejores-productos-para-vender-online.jpg",13))
     }
 
 }
